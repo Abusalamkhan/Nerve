@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-// Data from resources
+
 const dateArray = ['24-Apr-2024', '02-May-2024', '09-May-2024', '31-May-2024', '21-Jun-2024'];
 const strategyArray = [
   {
@@ -69,7 +69,7 @@ const strategyArray = [
   }
 ];
 
-    // Elements
+    
     const toggleButtons = document.querySelectorAll('.toggle-btn');
     const dateDropdown = document.getElementById('date-dropdown');
     const strategyContainer = document.getElementById('strategy-container');
@@ -78,7 +78,7 @@ const strategyArray = [
     let selectedView = 'Bullish';
     let selectedDate = dateArray[0];
 
-    // Initialize dropdown and render strategies
+    // Initialize dropdown 
     function init() {
         // Populate dropdown
         dateArray.forEach((date) => {
@@ -88,14 +88,14 @@ const strategyArray = [
             dateDropdown.appendChild(option);
         });
 
-        // Set default date
+        
         dateDropdown.value = selectedDate;
 
-        // Render initial strategies
+        
         renderStrategies();
     }
 
-    // Event Listeners
+  
     toggleButtons.forEach((btn) => {
         btn.addEventListener('click', (e) => {
             toggleButtons.forEach((b) => b.classList.remove('active'));
@@ -110,7 +110,7 @@ const strategyArray = [
         renderStrategies();
     });
 
-    // Render strategies
+    // Render paage
     function renderStrategies() {
         strategyContainer.innerHTML = '';
 
@@ -122,13 +122,13 @@ const strategyArray = [
             return;
         }
 
-        // Group strategies by name and count
+        
         const strategyCount = strategies.reduce((acc, strategy) => {
             acc[strategy] = (acc[strategy] || 0) + 1;
             return acc;
         }, {});
 
-        // Render cards
+        
         Object.entries(strategyCount).forEach(([name, count]) => {
             const card = document.createElement('div');
             card.className = 'card';
@@ -140,7 +140,7 @@ const strategyArray = [
         });
     }
 
-    // Initialize app
+   
     init();
 
 
